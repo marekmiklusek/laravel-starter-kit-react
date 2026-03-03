@@ -78,7 +78,7 @@
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
             "@php artisan boost:update --ansi || true",
             "composer bump",
-            "npx npm-check-updates -u"
+            "npx npm-check-updates -u || true"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
