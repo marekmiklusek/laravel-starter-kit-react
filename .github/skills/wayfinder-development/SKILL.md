@@ -68,10 +68,14 @@ show(1, { query: { page: 1 } }) // "/posts/1?page=1"
 
 ## Wayfinder + Inertia
 
-Use Wayfinder with the `<Form>` component:
-<!-- Wayfinder Form (React) -->
+Use Wayfinder with `useForm`:
+
+<!-- Wayfinder useForm -->
 ```typescript
-<Form {...store.form()}><input name="title" /></Form>
+import { store } from "@/actions/App/Http/Controllers/ExampleController";
+
+const form = useForm({ name: "My Big Post" });
+form.submit(store());
 ```
 
 ## Verification
