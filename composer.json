@@ -2,10 +2,13 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "marekmiklusek/laravel-starter-kit-react",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Laravel React starter kit with code quality tools pre-configured.",
     "keywords": [
         "laravel",
-        "framework"
+        "react",
+        "inertia",
+        "tailwind",
+        "starter-kit"
     ],
     "license": "MIT",
     "require": {
