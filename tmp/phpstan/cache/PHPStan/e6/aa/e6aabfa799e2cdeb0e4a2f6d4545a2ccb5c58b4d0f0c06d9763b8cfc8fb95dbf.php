@@ -5,7 +5,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
    'variableKey' => 'v1-enums',
    'data' => 
   array (
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/amp/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/amp/src/functions.php' => 
     array (
       0 => 'c074b88a9997c81f2d5039389a5b3eab6762f53509e320a4aaee26393daf4bfb',
       1 => 
@@ -23,7 +23,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/amp/src/Future/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/amp/src/Future/functions.php' => 
     array (
       0 => '514db68044f1b4ed5d37bab7cfdd811c72ea3a316b504f61e01a533ea31db35c',
       1 => 
@@ -41,7 +41,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/amp/src/Internal/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/amp/src/Internal/functions.php' => 
     array (
       0 => '4afc6f0ae803000ab428a87b9340ee779f7c16cdb5024d918624151d39e661ac',
       1 => 
@@ -56,7 +56,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/byte-stream/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/byte-stream/src/functions.php' => 
     array (
       0 => '6d26113166455a6d4f4f8d76e76b9d9160ec0b1ece22ed18b5318057e410e2c2',
       1 => 
@@ -81,7 +81,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         1 => 'STDERR',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/byte-stream/src/Internal/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/byte-stream/src/Internal/functions.php' => 
     array (
       0 => '4c8aee76eb56639121cbd04755ff7959cd18a477a3696653973c9990c1ca86c7',
       1 => 
@@ -96,7 +96,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/dns/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/dns/src/functions.php' => 
     array (
       0 => '8255d8224fb36a550e4c18f260a9d4c82fa74dbc528c59ea2467b47629dff960',
       1 => 
@@ -115,7 +115,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/http/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/http/src/functions.php' => 
     array (
       0 => 'ddc8d6e29c4225286d69c89915ab99e1c096429c34e9f6cc14d132095503dd92',
       1 => 
@@ -134,7 +134,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/http/src/Internal/constants.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/http/src/Internal/constants.php' => 
     array (
       0 => '63e9578d3f63e8a06978be383779c8cfe7d674212a7f546e9475a8a506551f45',
       1 => 
@@ -149,7 +149,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         0 => 'amp\\http\\internal\\HEADER_LOWERCASE_MAP',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/http-client/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/http-client/src/functions.php' => 
     array (
       0 => '180c950c416116c03f9fa3ddff11f7846088820a2a12bd73c8d6b69df06f6dfc',
       1 => 
@@ -164,7 +164,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/http-client/src/Internal/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/http-client/src/Internal/functions.php' => 
     array (
       0 => 'def6c2623568de1a51250e28a3dfc87ebcb3d5ca48c55b82b87982e1f0f90839',
       1 => 
@@ -178,7 +178,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/http-server/src/Driver/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/http-server/src/Driver/functions.php' => 
     array (
       0 => 'b56c067442ebfd41c83cc72617cbb7a18f8213532e281cd5db16c14e67cd66ac',
       1 => 
@@ -192,7 +192,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/http-server/src/Middleware/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/http-server/src/Middleware/functions.php' => 
     array (
       0 => '1009786de13317257038a6a9f981065c23f3508a0cc4d93e4b3c1a5833f0d6e1',
       1 => 
@@ -206,7 +206,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/http-server/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/http-server/src/functions.php' => 
     array (
       0 => 'f1ade9b3a1159c06088238ee39168238ef3e8b8d151a2580203c4dc8c96a963d',
       1 => 
@@ -220,7 +220,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/process/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/process/src/functions.php' => 
     array (
       0 => '230c7f1eb33985091317ae601d9953ac5230f1c318b85308d5928c7d9ea6ae99',
       1 => 
@@ -239,7 +239,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         1 => 'amp\\process\\IS_WINDOWS',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/serialization/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/serialization/src/functions.php' => 
     array (
       0 => 'ece8bf7322cbea581a90deb95bde0f396b50c25442494abd5309ea9b4d172555',
       1 => 
@@ -253,7 +253,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/socket/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/socket/src/functions.php' => 
     array (
       0 => '774e76f324fe0d4528f1bf89e1a39505aa313f47684cfb7c9d28b2f8b1e6b838',
       1 => 
@@ -274,7 +274,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/socket/src/Internal/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/socket/src/Internal/functions.php' => 
     array (
       0 => 'b724a005ad8094b702ce6b6295cef5a8c2ac8b5956fdfd649ad8532dc7161e2c',
       1 => 
@@ -292,7 +292,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/socket/src/SocketAddress/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/socket/src/SocketAddress/functions.php' => 
     array (
       0 => 'd091a920f76ab1e55e06bf1a677f38baf011d89fe8f954ed899bde60c592e626',
       1 => 
@@ -308,7 +308,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/sync/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/sync/src/functions.php' => 
     array (
       0 => 'f5f44253cf1710637e4e383eba6677e0a4395bcbd4ddb9bc8802b231b8edc1c4',
       1 => 
@@ -323,7 +323,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/websocket/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/websocket/src/functions.php' => 
     array (
       0 => '9383f805a44b1bdfc81761c09b31b89989163668a2ec441b023c8c448d3a49db',
       1 => 
@@ -341,7 +341,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         0 => 'amp\\websocket\\GUID',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../amphp/websocket-client/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../amphp/websocket-client/src/functions.php' => 
     array (
       0 => '28091299e7e10dbe5479a79df16f8d445969ee09fbc74b546a7f80e714376efe',
       1 => 
@@ -356,7 +356,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../daverandom/libdns/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../daverandom/libdns/src/functions.php' => 
     array (
       0 => '9869f6d24381db2e33b7bca5e868a3c54140d5cebc6207433f2c44c974a13021',
       1 => 
@@ -371,7 +371,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../guzzlehttp/guzzle/src/functions_include.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../guzzlehttp/guzzle/src/functions_include.php' => 
     array (
       0 => '188619ae14fd7457f450a02fba9f4ab58ef3fd2eccf90ee5e0d39b2b6078480a',
       1 => 
@@ -384,7 +384,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../inertiajs/inertia-laravel/./helpers.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../inertiajs/inertia-laravel/./helpers.php' => 
     array (
       0 => 'a1cc5c380261a5c3a05fa29c013fa4b354e9df7e7893b3a4aaf62e9479bb0ccd',
       1 => 
@@ -399,7 +399,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/framework/src/Illuminate/Collections/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/framework/src/Illuminate/Collections/functions.php' => 
     array (
       0 => '8308c0ddc8e20ec2fd6c362632aa4548612135932e255de6837cf30749ee55a8',
       1 => 
@@ -413,7 +413,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/framework/src/Illuminate/Collections/helpers.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/framework/src/Illuminate/Collections/helpers.php' => 
     array (
       0 => '0ab3c32b59702c826377fa2af8246cc11c803f7f69f86c41bfe84ab8fb86a8df',
       1 => 
@@ -436,7 +436,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/framework/src/Illuminate/Events/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/framework/src/Illuminate/Events/functions.php' => 
     array (
       0 => 'a92f9ce9127248e29cb81564de57d9ca664a7fd7beecd460d04dbe9ec32c604f',
       1 => 
@@ -450,7 +450,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/framework/src/Illuminate/Filesystem/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/framework/src/Illuminate/Filesystem/functions.php' => 
     array (
       0 => 'b73728cc75efbf6254ae79b77ecead9722b85f11abf07b33c5886e6169aec282',
       1 => 
@@ -464,7 +464,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/framework/src/Illuminate/Foundation/helpers.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/framework/src/Illuminate/Foundation/helpers.php' => 
     array (
       0 => '3fe9475e8c073a9c58af7e9cb8c74416031941413358f6082d558134d416ba86',
       1 => 
@@ -541,7 +541,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/framework/src/Illuminate/Log/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/framework/src/Illuminate/Log/functions.php' => 
     array (
       0 => '9e7bd52e145e686ab716fceea81534f81528e339b48c498c8212006779c286da',
       1 => 
@@ -555,7 +555,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/framework/src/Illuminate/Reflection/helpers.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/framework/src/Illuminate/Reflection/helpers.php' => 
     array (
       0 => '7a07703c5343527b0eac6f26dc7f52d9a34653ba8a90b1a8800d5600f0331740',
       1 => 
@@ -572,7 +572,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/framework/src/Illuminate/Support/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/framework/src/Illuminate/Support/functions.php' => 
     array (
       0 => 'fe246e687097276d36307d934b3fdedf5fd9ea06b2681ed9088f0ea07ddfd9cb',
       1 => 
@@ -598,7 +598,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/framework/src/Illuminate/Support/helpers.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/framework/src/Illuminate/Support/helpers.php' => 
     array (
       0 => '03e08f2db7a9486e64b7887f9a1c50b544b68fe8794284259fa985a40534a5b8',
       1 => 
@@ -636,7 +636,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../laravel/prompts/src/helpers.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../laravel/prompts/src/helpers.php' => 
     array (
       0 => '8b692f6e6b44e58e9b4f0407539b68c406b2195006388858d7f9289f7745aa50',
       1 => 
@@ -673,7 +673,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../mockery/mockery/library/helpers.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../mockery/mockery/library/helpers.php' => 
     array (
       0 => '93da8798c256eafe88dfc319557f853143c48aa1027f5197de1b963a87503e8f',
       1 => 
@@ -692,7 +692,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../mockery/mockery/library/Mockery.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../mockery/mockery/library/Mockery.php' => 
     array (
       0 => '8b6663d4d2c8acda387d4e3a48a8d8998f80315912dcd119a1f67c4ada60f43f',
       1 => 
@@ -760,7 +760,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' => 
     array (
       0 => '83a2f8c4b6e65d0c6c658a60614859a62faccc0f11f014c5ad609ba7d1fcebc2',
       1 => 
@@ -774,7 +774,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../nunomaduro/collision/./src/Adapters/Phpunit/Autoload.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../nunomaduro/collision/./src/Adapters/Phpunit/Autoload.php' => 
     array (
       0 => '2b94063d75f6b7e4f0e46319d6a0d478df2be33ee3567c69fb91f17f15d802df',
       1 => 
@@ -787,7 +787,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../nunomaduro/pokio/src/Functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../nunomaduro/pokio/src/Functions.php' => 
     array (
       0 => 'de5a1594761027f196dc58040b7c51987e555c5cb8b4c15c21009c8ba0c87892',
       1 => 
@@ -803,7 +803,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../nunomaduro/termwind/src/Functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../nunomaduro/termwind/src/Functions.php' => 
     array (
       0 => '211730f0c2316e6eed107a9523efcf48da5b3413431899947c7c22bfbc3b538f',
       1 => 
@@ -822,7 +822,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../pestphp/pest/src/Functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../pestphp/pest/src/Functions.php' => 
     array (
       0 => '63877395f323e17675bc064ee872e6ea54f5d310566b3e0b34e3e9681d631a8d',
       1 => 
@@ -851,7 +851,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../pestphp/pest/src/Pest.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../pestphp/pest/src/Pest.php' => 
     array (
       0 => '8696218f74fb2ae60c558b6b554fb777a9e46241d0ef120f3c5465ca3e3c7ec7',
       1 => 
@@ -866,7 +866,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../pestphp/pest-plugin-arch/src/Autoload.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../pestphp/pest-plugin-arch/src/Autoload.php' => 
     array (
       0 => 'e81b074e08d0489c9ed7791ff2c45290a23e9a245088861c3f5b631064e81a6f',
       1 => 
@@ -880,7 +880,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../pestphp/pest-plugin-browser/src/Autoload.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../pestphp/pest-plugin-browser/src/Autoload.php' => 
     array (
       0 => 'a637c95bc9604b2cafafe712032bb069502f6e0409152d0e337e1c10711531d0',
       1 => 
@@ -893,7 +893,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../pestphp/pest-plugin-laravel/src/Autoload.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../pestphp/pest-plugin-laravel/src/Autoload.php' => 
     array (
       0 => '7da5f79a9b4edc36b03e2296eb126ecfb7417a4816b4f867ceffd65629828155',
       1 => 
@@ -906,7 +906,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../phpstan/phpstan/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../phpstan/phpstan/bootstrap.php' => 
     array (
       0 => '9052eea7cd83da915bcae5993c602ca3762b099702d618bf6e836cfa2a4ee06b',
       1 => 
@@ -921,7 +921,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../phpunit/phpunit/src/Framework/Assert/Functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../phpunit/phpunit/src/Framework/Assert/Functions.php' => 
     array (
       0 => '650d60fd99eecd435631e672835fc277427fe8da484b9005744d0aaab64865ad',
       1 => 
@@ -1168,7 +1168,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../psy/psysh/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../psy/psysh/src/functions.php' => 
     array (
       0 => 'd9fc2916cce68d766c061c8aa45258c3e3e6538b8f94741511636e731615aaa0',
       1 => 
@@ -1185,7 +1185,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../ralouphie/getallheaders/src/getallheaders.php' => 
     array (
       0 => 'b2275333d82617732ad407dd55420ff16c0d0c19a5599d60aa9e1e3871d5a654',
       1 => 
@@ -1199,7 +1199,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../ramsey/uuid/src/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../ramsey/uuid/src/functions.php' => 
     array (
       0 => 'ca402a0577a7b3235e22fbc2bd6d6d5282900b039debb13a9f9400390668f45e',
       1 => 
@@ -1220,7 +1220,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../rector/rector/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../rector/rector/bootstrap.php' => 
     array (
       0 => '64e915b3f0965ba5445ba0e2fa5c0e34b9d94211cb679f960a23b5782e021529',
       1 => 
@@ -1233,7 +1233,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/clock/Resources/now.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/clock/Resources/now.php' => 
     array (
       0 => '26423cefde6ed92b0e0d5476a890f91c199546fc23b7c07f6c252c8c8f74934a',
       1 => 
@@ -1247,7 +1247,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/deprecation-contracts/function.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/deprecation-contracts/function.php' => 
     array (
       0 => '7b613b9e9473ab25c57052225446644319d4cfc18fb757921d827c278feadeb1',
       1 => 
@@ -1261,7 +1261,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-ctype/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-ctype/bootstrap.php' => 
     array (
       0 => 'df3a3ec4b85eb857e59297b6dd6b95245bc30bdb725bf947b20a819256abe052',
       1 => 
@@ -1285,7 +1285,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-intl-grapheme/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-intl-grapheme/bootstrap.php' => 
     array (
       0 => 'eb4e2a6955bbd4d26d0f43b6a4adeaba0b41a9347c58607c39962bba7199412a',
       1 => 
@@ -1311,7 +1311,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         2 => 'GRAPHEME_EXTR_MAXCHARS',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-intl-idn/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-intl-idn/bootstrap.php' => 
     array (
       0 => 'd1c848be8e40cd932b4c417062a06e344aebe6beefebaf627f4990a05e651653',
       1 => 
@@ -1364,7 +1364,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         35 => 'IDNA_ERROR_CONTEXTJ',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-intl-normalizer/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-intl-normalizer/bootstrap.php' => 
     array (
       0 => '4219b370aff1cd30ad3cd3814899094e63449adf26972217ab348fb384fd7715',
       1 => 
@@ -1379,7 +1379,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-mbstring/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-mbstring/bootstrap.php' => 
     array (
       0 => '8ed6c4de6d1427bbc30b4ef11ebf0e274b9791e07f45420280e3064567e599ac',
       1 => 
@@ -1439,7 +1439,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         2 => 'MB_CASE_TITLE',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-php80/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-php80/bootstrap.php' => 
     array (
       0 => 'b4d02a09f7ff5a3bda455bcba0db48e110bcc0cb3aae554f9b1635aa792c757a',
       1 => 
@@ -1460,7 +1460,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         0 => 'FILTER_VALIDATE_BOOL',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-php83/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-php83/bootstrap.php' => 
     array (
       0 => '4094bea8f7ea8beed0d488b1e38edc8de90925295231b4dca494ee87195b0b1d',
       1 => 
@@ -1480,7 +1480,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-php84/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-php84/bootstrap.php' => 
     array (
       0 => '191ed13c5c9c70344a6660c7c011a5211569b5a591a8af074be2699b919544b4',
       1 => 
@@ -1507,7 +1507,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         1 => 'CURL_HTTP_VERSION_3ONLY',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-php85/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-php85/bootstrap.php' => 
     array (
       0 => '0aed1a21a7eb020c07236ecf49c04c49025b6ffcf9686120ca0e96607fd7084d',
       1 => 
@@ -1524,7 +1524,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/polyfill-uuid/bootstrap.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/polyfill-uuid/bootstrap.php' => 
     array (
       0 => '971a77f0d03fd33f8ed6cce53010a372b76ffc64aebf1c7ae96bb613002d6b0b',
       1 => 
@@ -1562,7 +1562,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         12 => 'UUID_TYPE_INVALID',
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/string/Resources/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/string/Resources/functions.php' => 
     array (
       0 => '974e6a19bccfc71615061207a08243311152b4759ce416b8f2bc3390790b1644',
       1 => 
@@ -1578,7 +1578,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/translation/Resources/functions.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/translation/Resources/functions.php' => 
     array (
       0 => 'd3d21d3abab120c2488eaf5850182d2a6c64e42c27723500a58c980d658da8b6',
       1 => 
@@ -1592,7 +1592,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:/Users/marek/Herd/wellmall/vendor/composer/../symfony/var-dumper/Resources/functions/dump.php' => 
+    'C:/Users/marek/Herd/laravel-starter-kit-react/vendor/composer/../symfony/var-dumper/Resources/functions/dump.php' => 
     array (
       0 => 'b56854286c54a7e648bbb8b5126deb36f673bde888085c4cc0130cb1afbf27eb',
       1 => 
