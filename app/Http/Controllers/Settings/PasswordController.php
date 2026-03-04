@@ -7,11 +7,10 @@ namespace App\Http\Controllers\Settings;
 use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Settings\PasswordUpdateRequest;
 
-final class PasswordController extends Controller
+final class PasswordController
 {
     /**
      * Show the user's password settings page.

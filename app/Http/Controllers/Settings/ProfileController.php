@@ -8,14 +8,13 @@ use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Http\Requests\Settings\ProfileDeleteRequest;
 use App\Http\Requests\Settings\ProfileUpdateRequest;
 
-final class ProfileController extends Controller
+final class ProfileController
 {
     /**
      * Show the user's profile settings page.
@@ -25,7 +24,7 @@ final class ProfileController extends Controller
         $user = $request->user();
 
         return Inertia::render('settings/profile', [
-            'mustVerifyEmail' => $user instanceof MustVerifyEmail, // @phpstan-ignore instanceof.alwaysFalse
+            'mustVerifyEmail' => $user instanceof MustVerifyEmail,
             'status' => $request->session()->get('status'),
         ]);
     }
