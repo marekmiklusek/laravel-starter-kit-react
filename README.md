@@ -13,6 +13,9 @@ Built with **Inertia.js v2**, **React 19**, **Tailwind CSS v4**, and **Laravel W
 
 ## 🚀 Quick Start
 
+> [!NOTE]
+> In `config/database.php`, `'engine' => 'InnoDB',` is used as the default for both `mysql` and `mariadb` connections.
+
 ### 📦 Installation
 
 Create a new Laravel React project:
