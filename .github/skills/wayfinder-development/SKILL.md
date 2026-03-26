@@ -1,19 +1,12 @@
 ---
 name: wayfinder-development
-description: "Activates whenever referencing backend routes in frontend components. Use when importing from @/actions or @/routes, calling Laravel routes from TypeScript, or working with Wayfinder route functions."
+description: "Use this skill for Laravel Wayfinder which auto-generates typed functions for Laravel controllers and routes. ALWAYS use this skill when frontend code needs to call backend routes or controller actions. Trigger when: connecting any React/Vue/Svelte/Inertia frontend to Laravel controllers, routes, building end-to-end features with both frontend and backend, wiring up forms or links to backend endpoints, fixing route-related TypeScript errors, importing from @/actions or @/routes, or running wayfinder:generate. Use Wayfinder route functions instead of hardcoded URLs. Covers: wayfinder() vite plugin, .url()/.get()/.post()/.form(), query params, route model binding, tree-shaking. Do not use for backend-only task"
 license: MIT
 metadata:
   author: laravel
 ---
 
 # Wayfinder Development
-
-## When to Apply
-
-Activate whenever referencing backend routes in frontend components:
-- Importing from `@/actions/` or `@/routes/`
-- Calling Laravel routes from TypeScript/JavaScript
-- Creating links or navigation to backend endpoints
 
 ## Documentation
 
@@ -68,15 +61,7 @@ show(1, { query: { page: 1 } }) // "/posts/1?page=1"
 
 ## Wayfinder + Inertia
 
-Use Wayfinder with `useForm`:
-
-<!-- Wayfinder useForm -->
-```typescript
-import { store } from "@/actions/App/Http/Controllers/ExampleController";
-
-const form = useForm({ name: "My Big Post" });
-form.submit(store());
-```
+Use Wayfinder with the `<Form>` component:
 
 ## Verification
 
