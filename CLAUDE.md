@@ -5,12 +5,26 @@
 
 - **No Redundant Comments:** Do not write explanatory comments (e.g., `// Comment...`) inside the code. The code should be self-documenting.
 
-
 ### 2. Error Handling
 
 - **Variable Naming:** In `try/catch` blocks, **never** use `\Throwable $e`.
 - **Requirement:** Always use `Throwable $throwable`.
 
+```php
+// ❌ Wrong
+try {
+    // ...
+} catch (\Throwable $e) {
+    // ...
+}
+
+// ✅ Correct
+try {
+    // ...
+} catch (Throwable $throwable) {
+    // ...
+}
+```
 
 ### 3. Testing Strategy
 
@@ -18,17 +32,155 @@
 - **Fakes over Mocks:** **Never** use Mocking (Mockery).
 - **Requirement:** Always use **Fakes** (e.g., `Event::fake()`, `Bus::fake()`, `Storage::fake()`) or concrete implementations.
 
+```php
+// ❌ Wrong
+$mock = Mockery::mock(SomeService::class);
+
+// ✅ Correct
+Event::fake();
+Bus::fake();
+Storage::fake();
+```
 
 ### 4. Action Classes
 
 - **Pattern:** This application uses the Action pattern and prefers for much logic to live in reusable and composable Action classes.
-- **Location & Naming:** Actions live in `app/Actions`, and they are named based on what they do with the `Action` suffix (e.g., `CreateUserAction`).
+- **Location & Naming:** Actions live in `app/Actions`, and they are named based on what they do **without** any suffix (e.g., `CreateUser`, not `CreateUserAction`).
 - **Reuse Scope:** Actions may be called from many places: jobs, commands, HTTP requests, API requests, MCP requests, and more.
 - **Method Contract:** Create dedicated Action classes for business logic with a single `execute()` method.
 - **Dependencies:** Inject dependencies via the constructor using private properties.
 - **Generation:** Create new actions with `php artisan make:action "{name}" --no-interaction`.
 - **Transactions:** Wrap complex operations in `DB::transaction()` within actions when multiple models are involved.
 - **No Dependencies Case:** Some actions do not require constructor dependencies and can use only the `execute()` method.
+
+```php
+final readonly class CreateUser
+{
+    public function execute(CreateUserData $data): User
+    {
+        return DB::transaction(function () use ($data) {
+            // ...
+        });
+    }
+}
+```
+
+### 5. Configuration & Migrations
+
+#### Configuration Access
+
+- **Typed Helpers:** Never use `config()` directly. Always use typed accessors:
+    - `config()->string('key')` for string values
+    - `config()->integer('key')` for integer values
+    - `config()->array('key')` for array values
+
+```php
+// ❌ Wrong
+$value = config('app.name');
+
+// ✅ Correct
+$value = config()->string('app.name');
+$count = config()->integer('app.count');
+$items = config()->array('app.items');
+```
+
+#### Migration Defaults
+
+- **No Default Values in Migrations:** Never define default column values (e.g., `->default(0)`) in migration files.
+- **Requirement:** Define all default values in application code (Action classes, Controller classes, etc.).
+
+```php
+// ❌ Wrong (in migration)
+$table->integer('count')->default(0);
+
+// ✅ Correct (in migration — no default)
+$table->integer('count');
+```
+
+### 6. Validation
+
+- **String Minimum Length:** When validating a `string` field, always include the `min:` rule.
+
+```php
+// ❌ Wrong
+'name' => ['required', 'string'],
+
+// ✅ Correct
+'name' => ['required', 'string', 'min:1'],
+```
+
+### 7. Code Spacing
+
+- **Breathing Room:** Use blank lines to visually separate logical units inside methods. Code should read as distinct "thoughts", not as one dense block.
+- **Before Control Structures:** Always put a blank line before `foreach`, `if`, `for`, `while`, `switch`, `try`, and `return` when they follow other statements.
+- **Between Logical Steps:** Separate variable preparation, conditional checks, transformations, and assignments with blank lines.
+
+```php
+// ❌ Wrong — dense, hard to scan
+/** @var Collection<int, array<int, string>> $rows */
+$rows = Collection::make();
+foreach ($parameters as $parameter) {
+    // ...
+}
+
+// ✅ Correct — blank line before the loop
+/** @var Collection<int, array<int, string>> $rows */
+$rows = Collection::make();
+
+foreach ($parameters as $parameter) {
+    // ...
+}
+```
+
+```php
+// ❌ Wrong — multiple logical steps glued together
+$entry = trim($entry);
+if ($entry === '') {
+    continue;
+}
+[$filterName, $valueName] = array_pad(explode('=', $entry, 2), 2, '');
+if ($filterName === '' || $valueName === '') {
+    continue;
+}
+$out[$filterName] = $valueName;
+
+// ✅ Correct — each logical step separated
+$entry = trim($entry);
+
+if ($entry === '') {
+    continue;
+}
+
+[$filterName, $valueName] = array_pad(explode('=', $entry, 2), 2, '');
+
+if ($filterName === '' || $valueName === '') {
+    continue;
+}
+
+$out[$filterName] = $valueName;
+```
+
+### 8. Block Body Style
+
+- **No Empty Braces:** Never use empty inline braces `{}`.
+- **Always Open Body:** The opening `{` and closing `}` always go on separate lines, with `// ...` (or actual code) inside — even when the body would otherwise be empty.
+- **Applies Everywhere:** Constructors, methods, classes, closures — all blocks follow this style.
+```php
+// ❌ Wrong
+final readonly class SomeController
+{
+    public function __construct(private CreateUser $createUser) {}
+}
+ 
+// ✅ Correct
+final readonly class SomeController
+{
+    public function __construct(private CreateUser $createUser)
+    {
+        // ...
+    }
+}
+```
 
 === foundation rules ===
 
@@ -60,9 +212,10 @@ This application is a Laravel application and its main Laravel ecosystems packag
 
 This project has domain-specific skills available. You MUST activate the relevant skill whenever you work in that domain—don't wait until you're stuck.
 
+- `fortify-development` — ACTIVATE when the user works on authentication in Laravel. This includes login, registration, password reset, email verification, two-factor authentication (2FA/TOTP/QR codes/recovery codes), profile updates, password confirmation, or any auth-related routes and controllers. Activate when the user mentions Fortify, auth, authentication, login, register, signup, forgot password, verify email, 2FA, or references app/Actions/Fortify/, CreateNewUser, UpdateUserProfileInformation, FortifyServiceProvider, config/fortify.php, or auth guards. Fortify is the frontend-agnostic authentication backend for Laravel that registers all auth routes and controllers. Also activate when building SPA or headless authentication, customizing login redirects, overriding response contracts like LoginResponse, or configuring login throttling. Do NOT activate for Laravel Passport (OAuth2 API tokens), Socialite (OAuth social login), or non-auth Laravel features.
 - `laravel-best-practices` — Apply this skill whenever writing, reviewing, or refactoring Laravel PHP code. This includes creating or modifying controllers, models, migrations, form requests, policies, jobs, scheduled commands, service classes, and Eloquent queries. Triggers for N+1 and query performance issues, caching strategies, authorization and security patterns, validation, error handling, queue and job configuration, route definitions, and architectural decisions. Also use for Laravel code reviews and refactoring existing Laravel code to follow best practices. Covers any task involving Laravel backend PHP code patterns.
 - `wayfinder-development` — Use this skill for Laravel Wayfinder which auto-generates typed functions for Laravel controllers and routes. ALWAYS use this skill when frontend code needs to call backend routes or controller actions. Trigger when: connecting any React/Vue/Svelte/Inertia frontend to Laravel controllers, routes, building end-to-end features with both frontend and backend, wiring up forms or links to backend endpoints, fixing route-related TypeScript errors, importing from @/actions or @/routes, or running wayfinder:generate. Use Wayfinder route functions instead of hardcoded URLs. Covers: wayfinder() vite plugin, .url()/.get()/.post()/.form(), query params, route model binding, tree-shaking. Do not use for backend-only task
-- `pest-testing` — Use this skill for Pest PHP testing in Laravel projects only. Trigger whenever any test is being written, edited, fixed, or refactored — including fixing tests that broke after a code change, adding assertions, converting PHPUnit to Pest, adding datasets, and TDD workflows. Always activate when the user asks how to write something in Pest, mentions test files or directories (tests/Feature, tests/Unit, tests/Browser), or needs browser testing, smoke testing multiple pages for JS errors, or architecture tests. Covers: it()/expect() syntax, datasets, mocking, browser testing (visit/click/fill), smoke testing, arch(), Livewire component tests, RefreshDatabase, and all Pest 4 features. Do not use for factories, seeders, migrations, controllers, models, or non-test PHP code.
+- `pest-testing` — Use this skill for Pest PHP testing in Laravel projects only. Trigger whenever any test is being written, edited, fixed, or refactored — including fixing tests that broke after a code change, adding assertions, converting PHPUnit to Pest, adding datasets, and TDD workflows. Always activate when the user asks how to write something in Pest, mentions test files or directories (tests/Feature, tests/Unit, tests/Browser), or needs browser testing, smoke testing multiple pages for JS errors, or architecture tests. Covers: test()/it()/expect() syntax, datasets, mocking, browser testing (visit/click/fill), smoke testing, arch(), Livewire component tests, RefreshDatabase, and all Pest 4 features. Do not use for factories, seeders, migrations, controllers, models, or non-test PHP code.
 
 ## Conventions
 
@@ -140,6 +293,12 @@ This project has domain-specific skills available. You MUST activate the relevan
 - Use TitleCase for Enum keys: `FavoritePerson`, `BestLake`, `Monthly`.
 - Prefer PHPDoc blocks over inline comments. Only add inline comments for exceptionally complex logic.
 - Use array shape type definitions in PHPDoc blocks.
+
+=== deployments rules ===
+
+# Deployment
+
+- Laravel can be deployed using [Laravel Cloud](https://cloud.laravel.com/), which is the fastest way to deploy and scale production Laravel applications.
 
 === herd rules ===
 
