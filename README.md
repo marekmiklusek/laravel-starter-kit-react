@@ -89,6 +89,68 @@ To run with server-side rendering:
 composer dev:ssr
 ```
 
+## 🌍 Localization
+
+The starter kit ships with full multilingual support. **English** (`en`) and **Czech** (`cs`) are included out of the box, and every user-facing string in the React frontend goes through the translator.
+
+### 🔧 Switching the Locale
+
+Set the locale in your `.env` file:
+
+```env
+APP_LOCALE=cs
+APP_FALLBACK_LOCALE=en
+APP_FAKER_LOCALE=cs_CZ
+```
+
+After saving, the entire UI — auth pages, settings, dashboard, navigation, validation messages — renders in the selected language. No build step is needed for translation changes; the JSON dictionary is loaded server-side per request.
+
+### 📁 Language Files
+
+```
+lang/
+├── en.json              # English UI strings (key → translation)
+├── cs.json              # Czech UI strings
+├── en/
+│   ├── auth.php         # Laravel auth messages
+│   ├── pagination.php
+│   ├── passwords.php
+│   └── validation.php   # Laravel validation messages
+└── cs/
+    ├── auth.php
+    ├── pagination.php
+    ├── passwords.php
+    └── validation.php
+```
+
+`*.json` holds the application-level strings keyed by their English source text (Laravel's idiomatic JSON translation format). The PHP files cover Laravel's framework-level messages.
+
+### ⚛️ Using Translations in React
+
+The current locale and translations dictionary are shared as Inertia props by `HandleInertiaRequests`. Use the `useTranslations` hook in any component:
+
+```tsx
+import { useTranslations } from '@/hooks/use-translations';
+
+export default function MyComponent() {
+    const __ = useTranslations();
+
+    return <h1>{__('Welcome')}</h1>;
+}
+```
+
+The hook also supports `:placeholder` interpolation:
+
+```tsx
+__('Hello :name', { name: 'Marek' });
+```
+
+### ➕ Adding a New Language
+
+1. Create `lang/{locale}.json` with the same keys as `lang/en.json`.
+2. Create `lang/{locale}/` and translate `auth.php`, `pagination.php`, `passwords.php`, `validation.php`.
+3. Set `APP_LOCALE={locale}` in `.env`.
+
 ## 🔍 Code Quality
 
 ### 🧹 Linting & Formatting
