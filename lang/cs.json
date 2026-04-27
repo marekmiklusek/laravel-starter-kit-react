@@ -108,6 +108,8 @@
     "Are you sure you want to delete your account?": "Opravdu chcete smazat svůj účet?",
     "Once your account is deleted, all of its resources and data will also be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Po smazání účtu budou trvale smazány i všechny související údaje a data. Pro potvrzení trvalého smazání účtu zadejte své heslo.",
     "Navigation menu": "Navigační menu",
+    "Sidebar": "Postranní panel",
+    "Displays the mobile sidebar.": "Zobrazí mobilní postranní panel.",
     "Repository": "Repozitář",
     "Profile": "Profil",
     "Two-factor auth": "Dvoufaktorové ověření",
