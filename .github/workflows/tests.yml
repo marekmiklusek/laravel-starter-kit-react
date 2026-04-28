@@ -8,9 +8,14 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   ci:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     services:
       mysql:
@@ -33,10 +38,24 @@ jobs:
           tools: composer:v2
           coverage: xdebug
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Vite+
+        uses: voidzero-dev/setup-vp@v1
         with:
-          node-version: '22'
+          node-version: 22
+
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Cache Node Dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
 
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader --no-progress
@@ -72,28 +91,29 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps
 
-      - name: Rector Cache
+      - name: Cache Rector
         uses: actions/cache@v4
         with:
           path: /tmp/rector
           key: ${{ runner.os }}-rector-${{ hashFiles('composer.lock') }}
           restore-keys: ${{ runner.os }}-rector-
-      - run: mkdir -p /tmp/rector
 
-      - name: PHPStan Cache
+      - name: Cache PHPStan
         uses: actions/cache@v4
         with:
           path: /tmp/phpstan
           key: ${{ runner.os }}-phpstan-${{ hashFiles('composer.lock') }}
           restore-keys: ${{ runner.os }}-phpstan-
-      - run: mkdir -p /tmp/phpstan
+
+      - name: Create Cache Directories
+        run: mkdir -p /tmp/rector /tmp/phpstan
 
       - name: Tests
         run: composer test
 
       - name: Store Artifacts
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: browser-screenshots
-          path: |
-            tests/Browser/Screenshots
+          path: tests/Browser/Screenshots
