@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-test('returns a successful response', function (): void {
+it('redirects root to login', function (): void {
     $response = $this->get(route('home'));
 
-    $response->assertOk();
+    $response->assertRedirect(route('login'));
 });

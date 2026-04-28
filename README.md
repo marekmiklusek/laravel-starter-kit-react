@@ -176,6 +176,7 @@ composer test
 
 This includes:
 - Type coverage (100% minimum)
+- Code coverage (100% required)
 - Unit and feature tests (Pest)
 - Code style validation
 - Static analysis (PHPStan)
@@ -185,10 +186,10 @@ This includes:
 This starter kit includes Pest 4 with browser testing capabilities. Create browser tests in `tests/Browser/`:
 
 ```php
-it('displays the welcome page', function () {
-    $page = visit('/');
+it('displays the login page', function () {
+    $page = visit('/login');
 
-    $page->assertSee('Laravel')
+    $page->assertSee(__('Log in to your account'))
         ->assertNoJavascriptErrors();
 });
 ```
