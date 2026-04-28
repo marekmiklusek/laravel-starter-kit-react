@@ -30,6 +30,8 @@ it('logs the user in via the login page', function (): void {
 });
 
 it('registers a new user via the register page', function (): void {
+    config()->set('fortify.registration_enabled', true);
+
     $page = visit('/register');
 
     $page->assertSee(__('Create an account'))

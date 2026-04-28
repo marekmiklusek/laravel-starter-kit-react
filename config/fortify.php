@@ -145,6 +145,8 @@ return [
     |
     */
 
+    'registration_enabled' => (bool) env('FORTIFY_REGISTRATION_ENABLED', true),
+
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
