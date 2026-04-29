@@ -40,7 +40,7 @@ final class ProfileController
         $user->fill($request->validated());
 
         if ($user->isDirty('email')) {
-            $user->email_verified_at = null;
+            $user->forceFill(['email_verified_at' => null]);
         }
 
         $user->save();

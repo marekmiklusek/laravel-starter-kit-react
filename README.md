@@ -16,6 +16,9 @@ Built with **Inertia.js**, **React**, **Tailwind CSS**, and **Laravel Wayfinder*
 > [!NOTE]
 > In `config/database.php`, `'engine' => 'InnoDB',` is used as the default for both `mysql` and `mariadb` connections.
 
+> [!NOTE]
+> In `config/essentials.php`, models are unguarded by default via `Unguard::class => true`. This allows mass assignment without explicitly defining `$fillable` properties. You can change this setting if you prefer to use guarded models.
+
 ### 📦 Installation
 
 Create a new Laravel React project:
