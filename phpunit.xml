@@ -35,5 +35,6 @@
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>
         <env name="INERTIA_SSR_ENABLED" value="false"/>
+        <env name="FORTIFY_REGISTRATION_ENABLED" value="true" force="true"/>
     </php>
 </phpunit>
