@@ -38,8 +38,8 @@ jobs:
           tools: composer:v2
           coverage: xdebug
 
-      - name: Setup Vite+
-        uses: voidzero-dev/setup-vp@v1
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
@@ -53,6 +53,9 @@ jobs:
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader --no-progress
 
+      - name: Install Node Dependencies
+        run: npm install
+
       - name: Copy Environment File
         run: cp .env.example .env
 
@@ -60,11 +63,11 @@ jobs:
         run: php artisan key:generate
 
       - name: Build Assets
-        run: vp run build
+        run: npm run build
 
       - name: Get Playwright version
         id: playwright-version
-        run: echo "version=$(vp pm ls 2>/dev/null | grep playwright | head -1 | sed 's/.*@//')" >> $GITHUB_OUTPUT
+        run: echo "version=$(npm ls playwright --depth=0 2>/dev/null | grep playwright | head -1 | sed 's/.*@//')" >> $GITHUB_OUTPUT
 
       - name: Cache Playwright Browsers
         uses: actions/cache@v4
@@ -75,11 +78,11 @@ jobs:
 
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: vp exec playwright install --with-deps
+        run: npx playwright install --with-deps
 
       - name: Install Playwright System Dependencies
         if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: vp exec playwright install-deps
+        run: npx playwright install-deps
 
       - name: Cache Rector
         uses: actions/cache@v4
