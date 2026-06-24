@@ -75,11 +75,11 @@ jobs:
 
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps
+        run: vp exec playwright install --with-deps
 
       - name: Install Playwright System Dependencies
         if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps
+        run: vp exec playwright install-deps
 
       - name: Cache Rector
         uses: actions/cache@v4
