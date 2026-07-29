@@ -38,8 +38,8 @@ it('registers a new user via the register page', function (): void {
         ->fill('password', 'password1234')
         ->fill('password_confirmation', 'password1234')
         ->click(__('Create account'))
+        ->assertPathIs('/email/verify')
         ->assertNoJavaScriptErrors();
 
-    $this->assertAuthenticated();
     expect(User::query()->where('email', 'newuser@example.com')->exists())->toBeTrue();
 });
