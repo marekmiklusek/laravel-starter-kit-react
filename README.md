@@ -4,6 +4,13 @@
 
 Built with **Inertia.js**, **React**, **Tailwind CSS**, and **Laravel Wayfinder**.
 
+## 📦 Bundled Packages
+
+Beyond Laravel's default React stack, this kit ships pre-configured with:
+
+- [marekmiklusek/database-backup](https://github.com/marekmiklusek/database-backup) — automated MySQL backups to local storage or Google Drive ([setup](#-database-backups))
+- [marekmiklusek/telegram-logger](https://github.com/marekmiklusek/telegram-logger) — real-time log and exception delivery to Telegram ([setup](#-telegram-error-logging))
+
 ## 📋 Requirements
 
 - PHP >= 8.4.0
@@ -65,6 +72,64 @@ npx playwright install
 
 This installs the necessary browser binaries for running browser tests.
 
+#### 💾 Database Backups
+
+The starter kit ships with [marekmiklusek/database-backup](https://github.com/marekmiklusek/database-backup) for automated MySQL backups. The config is already published to `config/database-backup.php` — no `vendor:publish` needed.
+
+Backups are stored locally on the `local` disk in `storage/app/private/database-backups`, and old backups are cleaned up automatically after **14 days**.
+
+A daily backup is already scheduled in `routes/console.php`:
+
+```php
+Schedule::command('db-backup:run')
+    ->dailyAt('02:00')
+    ->onOneServer()
+    ->runInBackground();
+```
+
+Run it manually at any time:
+
+```bash
+php artisan db-backup:run      # create a backup
+php artisan db-backup:cleanup  # delete backups older than the retention period
+```
+
+Adjust the disk, directory, filename pattern, retention period, and mail notifications in `config/database-backup.php`. To back up to Google Drive instead of (or alongside) local storage, add a `google` disk to `config/filesystems.php` and set `storage.disk` — see the [package README](https://github.com/marekmiklusek/database-backup) for the full Google Drive setup guide.
+
+> [!NOTE]
+> If your database server forces TLS and `mysqldump` fails with a certificate error, set `MYSQL_SSL_MODE=REQUIRED` in `.env`. On MariaDB servers also set `DB_BACKUP_DUMP_CLIENT=mariadb` (already the default in `.env.example`).
+
+#### 📢 Telegram Error Logging
+
+The starter kit ships with [marekmiklusek/telegram-logger](https://github.com/marekmiklusek/telegram-logger), which forwards Laravel log messages and exceptions to a Telegram chat in real time. The config is already published to `config/telegram-logger.php`.
+
+Add your bot credentials to `.env` (the keys are already present in `.env.example`):
+
+```env
+TELEGRAM_LOGGER_ENABLED=true   # default — set to false to disable the logger entirely
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
+```
+
+No logging channel setup is required — the package hooks into Laravel's log events automatically, so ordinary `Log::error()` calls and unhandled exceptions are delivered:
+
+```php
+use Illuminate\Support\Facades\Log;
+
+Log::error('User not found', ['user_id' => 42]);
+```
+
+By default only `error` and above are sent. Change the threshold or enable silent notifications in `config/telegram-logger.php`:
+
+```php
+'level' => 'error',              // debug | info | warning | error | critical
+'silent_notification' => false,  // true = no sound/vibration
+'is_enabled' => env('TELEGRAM_LOGGER_ENABLED', true),
+```
+
+> [!TIP]
+> The logger stays idle unless it is enabled **and** both credentials are set — so leaving `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` empty in local development sends nothing. Use `TELEGRAM_LOGGER_ENABLED=false` to switch it off per environment without clearing the credentials.
+
 ## 💻 Development
 
 ### 🖥️ Running the Development Server
@@ -106,64 +171,6 @@ When set to `false`:
 - The "Don't have an account? Sign up" link on the login page is hidden automatically
 
 The flag is also exposed as `config()->boolean('fortify.registration_enabled')` if you need to read it elsewhere in the application.
-
-## 📦 Included Packages
-
-### 💾 Database Backup
-
-[`marekmiklusek/database-backup`](https://github.com/marekmiklusek/database-backup) — automated MySQL/MariaDB backups to local storage, Google Drive, or both.
-
-Publish the config:
-
-```bash
-php artisan vendor:publish --tag=database-backup-config
-```
-
-Run a backup:
-
-```bash
-php artisan db-backup:run
-```
-
-Backups older than 14 days are cleaned up automatically after each run (configurable in `config/database-backup.php`). To clean up manually:
-
-```bash
-php artisan db-backup:cleanup
-```
-
-If your database server forces TLS, set the SSL options in `.env`:
-
-```env
-DB_BACKUP_DUMP_CLIENT=mariadb   # 'mysql' (default) or 'mariadb'
-MYSQL_SSL_MODE=REQUIRED
-```
-
-For Google Drive storage and the full OAuth setup guide, see the [package README](https://github.com/marekmiklusek/database-backup).
-
-### 📢 Telegram Logger
-
-[`marekmiklusek/telegram-logger`](https://github.com/marekmiklusek/telegram-logger) — sends Laravel log messages and exceptions to Telegram for real-time monitoring.
-
-Publish the config:
-
-```bash
-php artisan vendor:publish --tag=telegram-logger-config
-```
-
-Add your bot credentials to `.env`:
-
-```env
-TELEGRAM_BOT_TOKEN=your_bot_token
-TELEGRAM_CHAT_ID=your_chat_id
-```
-
-Log messages are then delivered automatically via the standard `Log` facade:
-
-```php
-Log::error('User not found', ['user_id' => 42, 'action' => 'login']);
-```
-
-Minimum log level, silent notifications, and the on/off switch live in `config/telegram-logger.php` (`level`, `silent_notification`, `is_enabled`).
 
 ## 🌍 Localization
 
