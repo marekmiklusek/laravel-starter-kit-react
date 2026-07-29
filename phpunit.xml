@@ -36,5 +36,6 @@
         <env name="NIGHTWATCH_ENABLED" value="false"/>
         <env name="INERTIA_SSR_ENABLED" value="false"/>
         <env name="FORTIFY_REGISTRATION_ENABLED" value="true" force="true"/>
+        <env name="TELEGRAM_LOGGER_ENABLED" value="false"/>
     </php>
 </phpunit>

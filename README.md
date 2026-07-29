@@ -107,6 +107,64 @@ When set to `false`:
 
 The flag is also exposed as `config()->boolean('fortify.registration_enabled')` if you need to read it elsewhere in the application.
 
+## 📦 Included Packages
+
+### 💾 Database Backup
+
+[`marekmiklusek/database-backup`](https://github.com/marekmiklusek/database-backup) — automated MySQL/MariaDB backups to local storage, Google Drive, or both.
+
+Publish the config:
+
+```bash
+php artisan vendor:publish --tag=database-backup-config
+```
+
+Run a backup:
+
+```bash
+php artisan db-backup:run
+```
+
+Backups older than 14 days are cleaned up automatically after each run (configurable in `config/database-backup.php`). To clean up manually:
+
+```bash
+php artisan db-backup:cleanup
+```
+
+If your database server forces TLS, set the SSL options in `.env`:
+
+```env
+DB_BACKUP_DUMP_CLIENT=mariadb   # 'mysql' (default) or 'mariadb'
+MYSQL_SSL_MODE=REQUIRED
+```
+
+For Google Drive storage and the full OAuth setup guide, see the [package README](https://github.com/marekmiklusek/database-backup).
+
+### 📢 Telegram Logger
+
+[`marekmiklusek/telegram-logger`](https://github.com/marekmiklusek/telegram-logger) — sends Laravel log messages and exceptions to Telegram for real-time monitoring.
+
+Publish the config:
+
+```bash
+php artisan vendor:publish --tag=telegram-logger-config
+```
+
+Add your bot credentials to `.env`:
+
+```env
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
+```
+
+Log messages are then delivered automatically via the standard `Log` facade:
+
+```php
+Log::error('User not found', ['user_id' => 42, 'action' => 'login']);
+```
+
+Minimum log level, silent notifications, and the on/off switch live in `config/telegram-logger.php` (`level`, `silent_notification`, `is_enabled`).
+
 ## 🌍 Localization
 
 The starter kit ships with full multilingual support. **English** (`en`) and **Czech** (`cs`) are included out of the box, and every user-facing string in the React frontend goes through the translator.

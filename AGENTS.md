@@ -100,14 +100,22 @@ $table->integer('count');
 
 ### 6. Validation
 
-- **String Minimum Length:** When validating a `string` field, always include the `min:` rule.
+- **Always Both Bounds:** In form requests, always pair `min:` with `max:` (and vice versa) whenever a bound makes any sense at all — never only one of them, never neither. Applies to strings, integers, arrays, and files.
 
 ```php
-// ❌ Wrong
+// ❌ Wrong — no bounds
 'name' => ['required', 'string'],
 
-// ✅ Correct
-'name' => ['required', 'string', 'min:1'],
+// ❌ Wrong — only one bound
+'title' => ['required', 'string', 'max:255'],
+'quantity' => ['required', 'integer', 'min:1'],
+'tags' => ['required', 'array', 'max:10'],
+
+// ✅ Correct — both bounds
+'name' => ['required', 'string', 'min:1', 'max:255'],
+'title' => ['required', 'string', 'min:1', 'max:255'],
+'quantity' => ['required', 'integer', 'min:1', 'max:1000'],
+'tags' => ['required', 'array', 'min:1', 'max:10'],
 ```
 
 ### 7. Code Spacing
@@ -183,6 +191,38 @@ final readonly class SomeController
 }
 ```
 
+### 9. Cache & TTL Values
+
+- **No TTL Constants:** Never declare TTL values as class constants at the top of a file (e.g. `private const CACHE_TTL = 3600;`).
+- **Inline Date Expressions:** Always express the TTL inline at the call site using `now()->addDay()`, `now()->addHours(2)`, `now()->addMinutes(15)`, etc. It is self-documenting and reads as a real duration instead of a magic number.
+- **Applies To:** `Cache::remember()`, `Cache::put()`, `Cache::add()`, rate limiters, signed URLs, and any other API taking an expiry.
+
+```php
+// ❌ Wrong
+final class ReportController
+{
+    private const CACHE_TTL = 86400;
+
+    public function __invoke(): Response
+    {
+        $data = Cache::remember('reports.summary', self::CACHE_TTL, fn () => $this->build());
+
+        // ...
+    }
+}
+
+// ✅ Correct
+final class ReportController
+{
+    public function __invoke(): Response
+    {
+        $data = Cache::remember('reports.summary', now()->addDay(), fn () => $this->build());
+
+        // ...
+    }
+}
+```
+
 === foundation rules ===
 
 # Laravel Boost Guidelines
@@ -205,8 +245,8 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - laravel/pail (PAIL) - v1
 - laravel/pint (PINT) - v1
 - laravel/sail (SAIL) - v1
-- pestphp/pest (PEST) - v4
-- phpunit/phpunit (PHPUNIT) - v12
+- pestphp/pest (PEST) - v5
+- phpunit/phpunit (PHPUNIT) - v13
 - rector/rector (RECTOR) - v2
 - @inertiajs/react (INERTIA_REACT) - v3
 - react (REACT) - v19
