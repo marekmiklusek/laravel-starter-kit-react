@@ -37,7 +37,7 @@ it('registers a new user via the register page', function (): void {
         ->fill('email', 'newuser@example.com')
         ->fill('password', 'password1234')
         ->fill('password_confirmation', 'password1234')
-        ->click(__('Create account'))
+        ->click('[data-test="register-user-button"]')
         ->assertPathIs('/email/verify')
         ->assertNoJavaScriptErrors();
 
