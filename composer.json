@@ -100,7 +100,7 @@
         ],
         "lint": [
             "rector",
-            "pint --parallel",
+            "pint --parallel --blade",
             "npm run lint"
         ],
         "test:type-coverage": "pest --type-coverage --min=100",
