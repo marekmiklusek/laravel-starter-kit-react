@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-it('returns true', function (): void {
-    expect(true)->toBeTrue();
+it('boots the application in the testing environment', function (): void {
+    expect(app()->environment())->toBe('testing');
 });
