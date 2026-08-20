@@ -13,7 +13,7 @@ Beyond Laravel's default React stack, this kit ships pre-configured with:
 
 ## 📋 Requirements
 
-- PHP >= 8.4.0
+- PHP — see the `php` constraint in [`composer.json`](composer.json)
 - Composer
 - Node.js & NPM
 - MySQL (or your preferred database)
