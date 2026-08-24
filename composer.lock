@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47e218af1ce37521338d190d08236605",
+    "content-hash": "9950894f2af2230ed346f90c902677b6",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2507,16 +2507,16 @@
         },
         {
             "name": "marekmiklusek/telegram-logger",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marekmiklusek/telegram-logger.git",
-                "reference": "442a680b30033f9bd8665c91ffd734736907266d"
+                "reference": "13486f39bca3107a908f4a130b56ecbe97fb219d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marekmiklusek/telegram-logger/zipball/442a680b30033f9bd8665c91ffd734736907266d",
-                "reference": "442a680b30033f9bd8665c91ffd734736907266d",
+                "url": "https://api.github.com/repos/marekmiklusek/telegram-logger/zipball/13486f39bca3107a908f4a130b56ecbe97fb219d",
+                "reference": "13486f39bca3107a908f4a130b56ecbe97fb219d",
                 "shasum": ""
             },
             "require": {
@@ -2571,9 +2571,9 @@
             ],
             "support": {
                 "issues": "https://github.com/marekmiklusek/telegram-logger/issues",
-                "source": "https://github.com/marekmiklusek/telegram-logger/tree/v2.0.0"
+                "source": "https://github.com/marekmiklusek/telegram-logger/tree/v2.0.1"
             },
-            "time": "2026-08-22T14:52:59+00:00"
+            "time": "2026-08-24T15:59:21+00:00"
         },
         {
             "name": "monolog/monolog",
