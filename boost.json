@@ -1,12 +1,24 @@
 {
     "agents": [
         "claude_code",
-        "codex",
-        "copilot"
+        "codex"
     ],
     "cloud": false,
     "guidelines": true,
     "mcp": true,
-    "nightwatch_mcp": false,
-    "sail": false
+    "nightwatch": false,
+    "packages": [
+        "pestphp/pest-plugin-agent"
+    ],
+    "sail": false,
+    "skills": [
+        "infer-conventions",
+        "fortify-development",
+        "laravel-best-practices",
+        "testing-best-practices",
+        "wayfinder-development",
+        "inertia-react-development",
+        "tailwindcss-development",
+        "pest-plugin-agent"
+    ]
 }
