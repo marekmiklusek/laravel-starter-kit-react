@@ -8,12 +8,12 @@ Built with **Inertia.js**, **React**, **Tailwind CSS**, and **Laravel Wayfinder*
 
 Beyond Laravel's default React stack, this kit ships pre-configured with:
 
-- [marekmiklusek/database-backup](https://github.com/marekmiklusek/database-backup) — automated MySQL backups to local storage or Google Drive ([setup](#-database-backups))
-- [marekmiklusek/telegram-logger](https://github.com/marekmiklusek/telegram-logger) — real-time log and exception delivery to Telegram ([setup](#-telegram-error-logging))
+- [marekmiklusek/database-backup](https://github.com/marekmiklusek/database-backup): automated MySQL backups to local storage or Google Drive ([setup](#-database-backups))
+- [marekmiklusek/telegram-logger](https://github.com/marekmiklusek/telegram-logger): real-time log and exception delivery to Telegram ([setup](#-telegram-error-logging))
 
 ## 📋 Requirements
 
-- PHP — see the `php` constraint in [`composer.json`](composer.json)
+- PHP: see the `php` constraint in [`composer.json`](composer.json)
 - Composer
 - Node.js & NPM
 - MySQL (or your preferred database)
@@ -74,7 +74,7 @@ This installs the necessary browser binaries for running browser tests.
 
 #### 💾 Database Backups
 
-The starter kit ships with [marekmiklusek/database-backup](https://github.com/marekmiklusek/database-backup) for automated MySQL backups. The config is already published to `config/database-backup.php` — no `vendor:publish` needed.
+The starter kit ships with [marekmiklusek/database-backup](https://github.com/marekmiklusek/database-backup) for automated MySQL backups. The config is already published to `config/database-backup.php`, no `vendor:publish` needed.
 
 Backups are stored locally on the `local` disk in `storage/app/private/database-backups`, and old backups are cleaned up automatically after **14 days**.
 
@@ -94,7 +94,7 @@ php artisan db-backup:run      # create a backup
 php artisan db-backup:cleanup  # delete backups older than the retention period
 ```
 
-Adjust the disk, directory, filename pattern, retention period, and mail notifications in `config/database-backup.php`. To back up to Google Drive instead of (or alongside) local storage, add a `google` disk to `config/filesystems.php` and set `storage.disk` — see the [package README](https://github.com/marekmiklusek/database-backup) for the full Google Drive setup guide.
+Adjust the disk, directory, filename pattern, retention period, and mail notifications in `config/database-backup.php`. To back up to Google Drive instead of (or alongside) local storage, add a `google` disk to `config/filesystems.php` and set `storage.disk`. See the [package README](https://github.com/marekmiklusek/database-backup) for the full Google Drive setup guide.
 
 #### 📢 Telegram Error Logging
 
@@ -103,12 +103,12 @@ The starter kit ships with [marekmiklusek/telegram-logger](https://github.com/ma
 Add your bot credentials to `.env` (the keys are already present in `.env.example`):
 
 ```env
-TELEGRAM_LOGGER_ENABLED=true   # default — set to false to disable the logger entirely
+TELEGRAM_LOGGER_ENABLED=true   # default, set to false to disable the logger entirely
 TELEGRAM_BOT_TOKEN=your_bot_token
 TELEGRAM_CHAT_ID=your_chat_id
 ```
 
-No logging channel setup is required — the package hooks into Laravel's log events automatically, so ordinary `Log::error()` calls and unhandled exceptions are delivered:
+No logging channel setup is required. The package hooks into Laravel's log events automatically, so ordinary `Log::error()` calls and unhandled exceptions are delivered:
 
 ```php
 use Illuminate\Support\Facades\Log;
@@ -125,7 +125,7 @@ By default only `error` and above are sent. Change the threshold or enable silen
 ```
 
 > [!TIP]
-> The logger stays idle unless it is enabled **and** both credentials are set — so leaving `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` empty in local development sends nothing. Use `TELEGRAM_LOGGER_ENABLED=false` to switch it off per environment without clearing the credentials.
+> The logger stays idle unless it is enabled **and** both credentials are set, so leaving `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` empty in local development sends nothing. Use `TELEGRAM_LOGGER_ENABLED=false` to switch it off per environment without clearing the credentials.
 
 ## 💻 Development
 
@@ -159,7 +159,7 @@ composer dev:ssr
 User self-registration is controlled by a single switch via the `FORTIFY_REGISTRATION_ENABLED` env variable:
 
 ```env
-FORTIFY_REGISTRATION_ENABLED=true   # default — registration is open
+FORTIFY_REGISTRATION_ENABLED=true   # default, registration is open
 FORTIFY_REGISTRATION_ENABLED=false  # disable registration
 ```
 
@@ -183,7 +183,7 @@ APP_FALLBACK_LOCALE=en
 APP_FAKER_LOCALE=cs_CZ
 ```
 
-After saving, the entire UI — auth pages, settings, dashboard, navigation, validation messages — renders in the selected language. No build step is needed for translation changes; the JSON dictionary is loaded server-side per request.
+After saving, the entire UI (auth pages, settings, dashboard, navigation, validation messages) renders in the selected language. No build step is needed for translation changes; the JSON dictionary is loaded server-side per request.
 
 ### 📁 Language Files
 
