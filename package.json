@@ -8,8 +8,8 @@
         "dev": "vite",
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",
-        "lint": "eslint . --fix",
-        "test:lint": "eslint . && prettier --check resources/",
+        "lint": "eslint . --cache --fix && prettier --write --cache resources/",
+        "test:lint": "eslint . --cache && prettier --check --cache resources/",
         "lint:check": "eslint .",
         "types:check": "tsc --noEmit"
     },
