@@ -11,6 +11,7 @@ use function Laravel\Prompts\text;
 use function Laravel\Prompts\password;
 
 use App\Concerns\ProfileValidationRules;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Attributes\Description;
@@ -32,7 +33,10 @@ final class CreateUserCommand extends Command
         password(
             label: 'Confirm password',
             required: true,
-            validate: fn (string $value): ?string => $value === $password ? null : 'The password field confirmation does not match.',
+            validate: fn (string $value): string => Validator::make(
+                ['password' => $password, 'password_confirmation' => $value],
+                ['password' => ['confirmed']],
+            )->errors()->first('password'),
         );
 
         $user = User::query()->create([
