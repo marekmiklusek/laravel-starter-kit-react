@@ -8,21 +8,15 @@ import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import { useTranslations } from '@/hooks/use-translations';
 import AuthLayout from '@/layouts/auth-layout';
-import { register } from '@/routes';
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
 
 type Props = {
     status?: string;
     canResetPassword: boolean;
-    canRegister: boolean;
 };
 
-export default function Login({
-    status,
-    canResetPassword,
-    canRegister,
-}: Props) {
+export default function Login({ status, canResetPassword }: Props) {
     const __ = useTranslations();
 
     return (
@@ -106,15 +100,6 @@ export default function Login({
                                 {__('Log in')}
                             </Button>
                         </div>
-
-                        {canRegister && (
-                            <div className="text-center text-sm text-muted-foreground">
-                                {__("Don't have an account?")}{' '}
-                                <TextLink href={register()} tabIndex={5}>
-                                    {__('Sign up')}
-                                </TextLink>
-                            </div>
-                        )}
                     </>
                 )}
             </Form>

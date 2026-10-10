@@ -28,18 +28,3 @@ it('logs the user in via the login page', function (): void {
 
     $this->assertAuthenticatedAs($user);
 });
-
-it('registers a new user via the register page', function (): void {
-    $page = visit('/register');
-
-    $page->assertSee(__('Create an account'))
-        ->fill('name', 'Test User')
-        ->fill('email', 'newuser@example.com')
-        ->fill('password', 'password1234')
-        ->fill('password_confirmation', 'password1234')
-        ->click('[data-test="register-user-button"]')
-        ->assertPathIs('/email/verify')
-        ->assertNoJavaScriptErrors();
-
-    expect(User::query()->where('email', 'newuser@example.com')->exists())->toBeTrue();
-});

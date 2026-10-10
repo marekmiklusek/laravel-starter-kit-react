@@ -154,20 +154,15 @@ composer dev:ssr
 
 ### 🔐 Authentication
 
-#### Enable / Disable Registration
+#### Creating Users
 
-User self-registration is controlled by a single switch via the `FORTIFY_REGISTRATION_ENABLED` env variable:
+Users are created via Artisan:
 
-```env
-FORTIFY_REGISTRATION_ENABLED=true   # default, registration is open
-FORTIFY_REGISTRATION_ENABLED=false  # disable registration
+```bash
+php artisan user:create
 ```
 
-When set to `false`:
-- The `/register` route is not registered and returns **404**
-- The "Don't have an account? Sign up" link on the login page is hidden automatically
-
-The flag is also exposed as `config()->boolean('fortify.registration_enabled')` if you need to read it elsewhere in the application.
+The command prompts for the name, email address and password, validating each answer right away. Created users have their email marked as verified.
 
 ## 🌍 Localization
 

@@ -84,3 +84,8 @@ test('users are rate limited', function (): void {
 
     $response->assertTooManyRequests();
 });
+
+test('registration screen is not available', function (): void {
+    $this->get('/register')->assertNotFound();
+    $this->post('/register')->assertNotFound();
+});
