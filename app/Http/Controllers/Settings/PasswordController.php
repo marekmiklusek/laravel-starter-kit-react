@@ -12,17 +12,11 @@ use App\Http\Requests\Settings\PasswordUpdateRequest;
 
 final class PasswordController
 {
-    /**
-     * Show the user's password settings page.
-     */
     public function edit(): Response
     {
         return Inertia::render('settings/password');
     }
 
-    /**
-     * Update the user's password.
-     */
     public function update(PasswordUpdateRequest $request): RedirectResponse
     {
         /** @var User $user */

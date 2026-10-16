@@ -14,9 +14,6 @@ use App\Http\Requests\Settings\TwoFactorAuthenticationRequest;
 
 final class TwoFactorAuthenticationController implements HasMiddleware
 {
-    /**
-     * Get the middleware that should be assigned to the controller.
-     */
     public static function middleware(): array
     {
         return Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')
@@ -24,9 +21,6 @@ final class TwoFactorAuthenticationController implements HasMiddleware
             : [];
     }
 
-    /**
-     * Show the user's two-factor authentication settings page.
-     */
     public function show(TwoFactorAuthenticationRequest $request): Response
     {
         $request->ensureStateIsValid();

@@ -16,9 +16,6 @@ use App\Http\Requests\Settings\ProfileUpdateRequest;
 
 final class ProfileController
 {
-    /**
-     * Show the user's profile settings page.
-     */
     public function edit(Request $request): Response
     {
         $user = $request->user();
@@ -29,9 +26,6 @@ final class ProfileController
         ]);
     }
 
-    /**
-     * Update the user's profile information.
-     */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         /** @var User $user */
@@ -48,9 +42,6 @@ final class ProfileController
         return to_route('profile.edit');
     }
 
-    /**
-     * Delete the user's profile.
-     */
     public function destroy(ProfileDeleteRequest $request): RedirectResponse
     {
         /** @var User $user */
