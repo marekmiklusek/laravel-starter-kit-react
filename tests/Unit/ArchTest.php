@@ -15,6 +15,7 @@ arch('controllers expose only resource methods')
     ->expect('App\Http\Controllers')
     ->not->toHavePublicMethodsBesides([
         '__construct',
+        '__invoke',
         'middleware',
         'index',
         'create',
