@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Settings;
 
-use App\Concerns\PasswordValidationRules;
+use App\Models\User;
+use App\Concerns\ProfileValidationRules;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-final class PasswordUpdateRequest extends FormRequest
+final class UpdateProfileRequest extends FormRequest
 {
-    use PasswordValidationRules;
+    use ProfileValidationRules;
 
     /**
      * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
-        return [
-            'current_password' => $this->currentPasswordRules(),
-            'password' => $this->passwordRules(),
-        ];
+        /** @var User $user */
+        $user = $this->user();
+
+        return $this->profileRules($user->id);
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Laravel\Fortify\InteractsWithTwoFactorState;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-final class TwoFactorAuthenticationRequest extends FormRequest
+final class ShowTwoFactorAuthenticationRequest extends FormRequest
 {
     use InteractsWithTwoFactorState;
 

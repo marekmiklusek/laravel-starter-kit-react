@@ -8,7 +8,7 @@ use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\Settings\PasswordUpdateRequest;
+use App\Http\Requests\Settings\UpdatePasswordRequest;
 
 final class PasswordController
 {
@@ -17,13 +17,13 @@ final class PasswordController
         return Inertia::render('settings/password');
     }
 
-    public function update(PasswordUpdateRequest $request): RedirectResponse
+    public function update(UpdatePasswordRequest $updatePasswordRequest): RedirectResponse
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = $updatePasswordRequest->user();
 
         $user->update([
-            'password' => $request->password,
+            'password' => $updatePasswordRequest->password,
         ]);
 
         return back();

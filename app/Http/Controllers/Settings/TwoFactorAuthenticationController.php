@@ -10,7 +10,7 @@ use Inertia\Response;
 use Laravel\Fortify\Features;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
-use App\Http\Requests\Settings\TwoFactorAuthenticationRequest;
+use App\Http\Requests\Settings\ShowTwoFactorAuthenticationRequest;
 
 final class TwoFactorAuthenticationController implements HasMiddleware
 {
@@ -21,12 +21,12 @@ final class TwoFactorAuthenticationController implements HasMiddleware
             : [];
     }
 
-    public function show(TwoFactorAuthenticationRequest $request): Response
+    public function show(ShowTwoFactorAuthenticationRequest $showTwoFactorAuthenticationRequest): Response
     {
-        $request->ensureStateIsValid();
+        $showTwoFactorAuthenticationRequest->ensureStateIsValid();
 
         /** @var User $user */
-        $user = $request->user();
+        $user = $showTwoFactorAuthenticationRequest->user();
 
         return Inertia::render('settings/two-factor', [
             'twoFactorEnabled' => $user->hasEnabledTwoFactorAuthentication(),

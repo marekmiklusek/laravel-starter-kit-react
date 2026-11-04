@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Http\Requests\Settings\ProfileDeleteRequest;
-use App\Http\Requests\Settings\ProfileUpdateRequest;
+use App\Http\Requests\Settings\DeleteProfileRequest;
+use App\Http\Requests\Settings\UpdateProfileRequest;
 
 final class ProfileController
 {
@@ -26,12 +26,12 @@ final class ProfileController
         ]);
     }
 
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(UpdateProfileRequest $updateProfileRequest): RedirectResponse
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = $updateProfileRequest->user();
 
-        $user->fill($request->validated());
+        $user->fill($updateProfileRequest->validated());
 
         if ($user->isDirty('email')) {
             $user->forceFill(['email_verified_at' => null]);
@@ -42,17 +42,17 @@ final class ProfileController
         return to_route('profile.edit');
     }
 
-    public function destroy(ProfileDeleteRequest $request): RedirectResponse
+    public function destroy(DeleteProfileRequest $deleteProfileRequest): RedirectResponse
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = $deleteProfileRequest->user();
 
         Auth::logout();
 
         $user->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $deleteProfileRequest->session()->invalidate();
+        $deleteProfileRequest->session()->regenerateToken();
 
         return redirect('/');
     }
