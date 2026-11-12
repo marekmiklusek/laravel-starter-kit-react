@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(herd php:*)",
-      "Bash(herd composer:*)"
-    ]
-  }
-}

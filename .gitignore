@@ -28,3 +28,4 @@ yarn-error.log
 /.zed
 /tmp
 .eslintcache
+/.claude/settings.local.json
