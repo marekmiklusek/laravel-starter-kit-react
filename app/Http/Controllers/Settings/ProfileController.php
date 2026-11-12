@@ -7,7 +7,9 @@ namespace App\Http\Controllers\Settings;
 use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Actions\DeleteUser;
 use Illuminate\Http\Request;
+use App\Actions\UpdateUserProfile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -26,30 +28,28 @@ final class ProfileController
         ]);
     }
 
-    public function update(UpdateProfileRequest $updateProfileRequest): RedirectResponse
+    public function update(UpdateProfileRequest $updateProfileRequest, UpdateUserProfile $updateUserProfile): RedirectResponse
     {
         /** @var User $user */
         $user = $updateProfileRequest->user();
 
-        $user->fill($updateProfileRequest->validated());
-
-        if ($user->isDirty('email')) {
-            $user->forceFill(['email_verified_at' => null]);
-        }
-
-        $user->save();
+        $updateUserProfile->execute(
+            $user,
+            $updateProfileRequest->string('name')->toString(),
+            $updateProfileRequest->string('email')->toString(),
+        );
 
         return to_route('profile.edit');
     }
 
-    public function destroy(DeleteProfileRequest $deleteProfileRequest): RedirectResponse
+    public function destroy(DeleteProfileRequest $deleteProfileRequest, DeleteUser $deleteUser): RedirectResponse
     {
         /** @var User $user */
         $user = $deleteProfileRequest->user();
 
         Auth::logout();
 
-        $user->delete();
+        $deleteUser->execute($user);
 
         $deleteProfileRequest->session()->invalidate();
         $deleteProfileRequest->session()->regenerateToken();

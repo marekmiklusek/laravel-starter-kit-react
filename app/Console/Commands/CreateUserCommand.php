@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use App\Models\User;
+use App\Actions\CreateUser;
 use Illuminate\Console\Command;
 
 use function Laravel\Prompts\text;
@@ -22,7 +22,7 @@ final class CreateUserCommand extends Command
 {
     use ProfileValidationRules;
 
-    public function handle(): int
+    public function handle(CreateUser $createUser): int
     {
         $name = text(label: 'Name', required: true, validate: ['name' => $this->nameRules()]);
 
@@ -39,12 +39,7 @@ final class CreateUserCommand extends Command
             )->errors()->first('password'),
         );
 
-        $user = User::query()->create([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
-            'email_verified_at' => now(),
-        ]);
+        $user = $createUser->execute($name, $email, $password);
 
         $this->components->success(sprintf('User [%s] created successfully.', $user->email));
 
