@@ -14,6 +14,9 @@
         <testsuite name="Browser">
             <directory>tests/Browser</directory>
         </testsuite>
+        <testsuite name="PHPStan">
+            <directory>tests/PHPStan</directory>
+        </testsuite>
     </testsuites>
     <source>
         <include>
