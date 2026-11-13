@@ -1,6 +1,6 @@
 # 🚀 Laravel React Starter Kit
 
-[Laravel's official React starter kit](https://laravel.com/docs/12.x/starter-kits#react) enhanced with development workflow tools, code quality standards, and additional developer experience improvements.
+[Laravel's official React starter kit](https://laravel.com/docs/13.x/starter-kits#react) enhanced with development workflow tools, code quality standards, and additional developer experience improvements.
 
 Built with **Inertia.js**, **React**, **Tailwind CSS**, and **Laravel Wayfinder**.
 
