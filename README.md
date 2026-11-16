@@ -158,7 +158,7 @@ Users are created via Artisan:
 php artisan user:create
 ```
 
-The command prompts for the name, email address and password, validating each answer right away. Created users have their email marked as verified.
+The command prompts for the name and email address, validating each answer right away, then generates a random password and prints it once. Created users have their email marked as verified.
 
 ## 🌍 Localization
 

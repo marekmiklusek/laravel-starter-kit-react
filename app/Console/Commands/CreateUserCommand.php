@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace App\Console\Commands;
 
 use App\Actions\CreateUser;
+use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 
 use function Laravel\Prompts\text;
-use function Laravel\Prompts\password;
 
 use App\Concerns\ProfileValidationRules;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rules\Password;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Attributes\Description;
 
@@ -28,20 +26,12 @@ final class CreateUserCommand extends Command
 
         $email = text(label: 'Email address', required: true, validate: ['email' => $this->emailRules()]);
 
-        $password = password(label: 'Password', required: true, validate: ['password' => ['required', 'string', Password::default()]]);
-
-        password(
-            label: 'Confirm password',
-            required: true,
-            validate: fn (string $value): string => Validator::make(
-                ['password' => $password, 'password_confirmation' => $value],
-                ['password' => ['confirmed']],
-            )->errors()->first('password'),
-        );
+        $password = Str::random(32);
 
         $user = $createUser->execute($name, $email, $password);
 
         $this->components->success(sprintf('User [%s] created successfully.', $user->email));
+        $this->components->twoColumnDetail('Password', $password);
 
         return self::SUCCESS;
     }

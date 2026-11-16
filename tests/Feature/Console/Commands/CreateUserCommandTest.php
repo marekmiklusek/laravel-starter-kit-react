@@ -3,15 +3,17 @@
 declare(strict_types=1);
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
-it('creates a verified user from the prompted answers', function (): void {
+it('creates a verified user with a generated password and shows it', function (): void {
+    Str::createRandomStringsUsing(fn (): string => 'generated-password');
+
     $this->mockArtisan('user:create')
         ->expectsQuestion('Name', 'Test User')
         ->expectsQuestion('Email address', 'test@example.com')
-        ->expectsQuestion('Password', 'password1234')
-        ->expectsQuestion('Confirm password', 'password1234')
         ->expectsOutputToContain('User [test@example.com] created successfully.')
+        ->expectsOutputToContain('generated-password')
         ->assertSuccessful()
         ->run();
 
@@ -19,7 +21,7 @@ it('creates a verified user from the prompted answers', function (): void {
 
     expect($user->only('name', 'email'))->toBe(['name' => 'Test User', 'email' => 'test@example.com'])
         ->and($user->email_verified_at)->not->toBeNull()
-        ->and(Hash::check('password1234', $user->password))->toBeTrue();
+        ->and(Hash::check('generated-password', $user->password))->toBeTrue();
 });
 
 it('rejects a name that is too long before prompting for the email', function (): void {
@@ -32,36 +34,11 @@ it('rejects a name that is too long before prompting for the email', function ()
     $this->assertDatabaseEmpty('users');
 });
 
-it('rejects an invalid email before prompting for the password', function (): void {
+it('rejects an invalid email', function (): void {
     $this->mockArtisan('user:create')
         ->expectsQuestion('Name', 'Test User')
         ->expectsQuestion('Email address', 'not-an-email')
         ->expectsOutputToContain('The email field must be a valid email address.')
-        ->assertFailed()
-        ->run();
-
-    $this->assertDatabaseEmpty('users');
-});
-
-it('rejects a password that is too short', function (): void {
-    $this->mockArtisan('user:create')
-        ->expectsQuestion('Name', 'Test User')
-        ->expectsQuestion('Email address', 'test@example.com')
-        ->expectsQuestion('Password', 'short')
-        ->expectsOutputToContain('The password field must be at least 8 characters.')
-        ->assertFailed()
-        ->run();
-
-    $this->assertDatabaseEmpty('users');
-});
-
-it('rejects a password confirmation that does not match', function (): void {
-    $this->mockArtisan('user:create')
-        ->expectsQuestion('Name', 'Test User')
-        ->expectsQuestion('Email address', 'test@example.com')
-        ->expectsQuestion('Password', 'password1234')
-        ->expectsQuestion('Confirm password', 'different1234')
-        ->expectsOutputToContain('The password field confirmation does not match.')
         ->assertFailed()
         ->run();
 
